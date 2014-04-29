@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="D3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="D3ModelStoreContainer">
+    <EntitySet Name="CurrentDayPickups" EntityType="D3Model.Store.CurrentDayPickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CurrentDayRoutes" EntityType="D3Model.Store.CurrentDayRoutes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="D3Model.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="D3Model.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ArchivedPickups" EntityType="D3Model.Store.ArchivedPickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pickups" EntityType="D3Model.Store.Pickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostedMessages" EntityType="D3Model.Store.PostedMessages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Routes" EntityType="D3Model.Store.Routes" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CurrentDayPickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="PreviousRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="IsDispatched" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="CurrentDayRoutes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteKey" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DriverId" Type="nvarchar" Nullable="true" MaxLength="4" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Address1" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="State" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="13" />
+    <Property Name="Contact" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="ClosingTime" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DefaultRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="InfoString" Type="nchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverKey" Type="nvarchar" Nullable="true" MaxLength="4" />
+    <Property Name="LastName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MiddleInitial" Type="nvarchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ArchivedPickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefaultRouteID" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Dispatched" Type="bit" Nullable="true" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Deleted" Type="bit" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="Pickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefaultRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Monday" Type="bit" Nullable="true" />
+    <Property Name="Tuesday" Type="bit" Nullable="true" />
+    <Property Name="Wednesday" Type="bit" Nullable="true" />
+    <Property Name="Thursday" Type="bit" Nullable="true" />
+    <Property Name="Friday" Type="bit" Nullable="true" />
+    <Property Name="Dispatched" Type="bit" Nullable="true" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="PostedMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataType" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Key" Type="int" Nullable="true" />
+    <Property Name="NumberofPendingUpdates" Type="int" Nullable="true" />
+    <Property Name="Originator" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultRouteId" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="PreviousRouteID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="isDragnDrop" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteKey" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="DriverKey" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+</Schema>

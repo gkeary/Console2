@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="D3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="D3ModelStoreContainer">
+    <EntitySet Name="CurrentDayPickups" EntityType="D3Model.Store.CurrentDayPickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CurrentDayRoutes" EntityType="D3Model.Store.CurrentDayRoutes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="D3Model.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="D3Model.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ArchivedPickups" EntityType="D3Model.Store.ArchivedPickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pickups" EntityType="D3Model.Store.Pickups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostedMessages" EntityType="D3Model.Store.PostedMessages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Routes" EntityType="D3Model.Store.Routes" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CurrentDayPickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="PreviousRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="IsDispatched" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="CurrentDayRoutes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteKey" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DriverId" Type="nvarchar" Nullable="true" MaxLength="4" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Address1" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="State" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="13" />
+    <Property Name="Contact" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="ClosingTime" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DefaultRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="InfoString" Type="nchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverKey" Type="nvarchar" Nullable="true" MaxLength="4" />
+    <Property Name="LastName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MiddleInitial" Type="nvarchar" Nullable="true" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ArchivedPickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefaultRouteID" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Dispatched" Type="bit" Nullable="true" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Deleted" Type="bit" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="Pickups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefaultRouteId" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="PickupDate" Type="datetime" Nullable="true" />
+    <Property Name="CustomerKey" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Monday" Type="bit" Nullable="true" />
+    <Property Name="Tuesday" Type="bit" Nullable="true" />
+    <Property Name="Wednesday" Type="bit" Nullable="true" />
+    <Property Name="Thursday" Type="bit" Nullable="true" />
+    <Property Name="Friday" Type="bit" Nullable="true" />
+    <Property Name="Dispatched" Type="bit" Nullable="true" />
+    <Property Name="DispatchTime" Type="datetime" Nullable="true" />
+    <Property Name="Notes" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="PostedMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataType" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Key" Type="int" Nullable="true" />
+    <Property Name="NumberofPendingUpdates" Type="int" Nullable="true" />
+    <Property Name="Originator" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultRouteId" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="PreviousRouteID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="isDragnDrop" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteKey" Type="nvarchar" Nullable="true" MaxLength="2" />
+    <Property Name="RouteName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="DriverMessage" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="DriverKey" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="D3Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="D3Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CurrentDayPickups" EntityType="D3Model.CurrentDayPickup" />
+          <EntitySet Name="CurrentDayRoutes" EntityType="D3Model.CurrentDayRoute" />
+          <EntitySet Name="Customers" EntityType="D3Model.Customer" />
+          <EntitySet Name="Drivers" EntityType="D3Model.Driver" />
+          <EntitySet Name="ArchivedPickups" EntityType="D3Model.ArchivedPickup" />
+          <EntitySet Name="Pickups" EntityType="D3Model.Pickup" />
+          <EntitySet Name="PostedMessages" EntityType="D3Model.PostedMessage" />
+          <EntitySet Name="Routes" EntityType="D3Model.Route" />
+        </EntityContainer>
+        <EntityType Name="CurrentDayPickup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteId" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="RouteName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="PreviousRouteId" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="PickupDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerKey" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DriverName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DriverMessage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Comment" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="IsDispatched" Type="Boolean" Nullable="false" DefaultValue="false " />
+          <Property Name="DispatchTime" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" DefaultValue="False" />
+        </EntityType>
+        <EntityType Name="CurrentDayRoute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteKey" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="RouteName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DriverId" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="DriverName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DriverMessage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerKey" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ClosingTime" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="Comment" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DefaultRouteId" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="InfoString" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverKey" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          </EntityType>
+        <EntityType Name="ArchivedPickup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DefaultRouteID" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="PickupDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerKey" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DriverName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="DriverMessage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="RouteName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Comment" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Dispatched" Type="Boolean" />
+          <Property Name="DispatchTime" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Pickup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DefaultRouteId" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="PickupDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerKey" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DriverName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="RouteName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Comment" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Monday" Type="Boolean" />
+          <Property Name="Tuesday" Type="Boolean" />
+          <Property Name="Wednesday" Type="Boolean" />
+          <Property Name="Thursday" Type="Boolean" />
+          <Property Name="Friday" Type="Boolean" />
+          <Property Name="Dispatched" Type="Boolean" />
+          <Property Name="DispatchTime" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PostedMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DataType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Key" Type="Int32" />
+          <Property Name="NumberofPendingUpdates" Type="Int32" />
+          <Property Name="Originator" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DefaultRouteId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PreviousRouteID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="isDragnDrop" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteKey" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="RouteName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DriverMessage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="DriverKey" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="D3ModelStoreContainer" CdmEntityContainer="D3Entities">
+    <EntitySetMapping Name="CurrentDayPickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.CurrentDayPickup)">
+        <MappingFragment StoreEntitySet="CurrentDayPickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="PreviousRouteId" ColumnName="PreviousRouteId" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsDispatched" ColumnName="IsDispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentDayRoutes">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.CurrentDayRoute)">
+        <MappingFragment StoreEntitySet="CurrentDayRoutes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteKey" ColumnName="RouteKey" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="InfoString" ColumnName="InfoString" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DriverKey" ColumnName="DriverKey" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivedPickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.ArchivedPickup)">
+        <MappingFragment StoreEntitySet="ArchivedPickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefaultRouteID" ColumnName="DefaultRouteID" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Dispatched" ColumnName="Dispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Pickup)">
+        <MappingFragment StoreEntitySet="Pickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Dispatched" ColumnName="Dispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostedMessages">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.PostedMessage)">
+        <MappingFragment StoreEntitySet="PostedMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="NumberofPendingUpdates" ColumnName="NumberofPendingUpdates" />
+          <ScalarProperty Name="Originator" ColumnName="Originator" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="PreviousRouteID" ColumnName="PreviousRouteID" />
+          <ScalarProperty Name="isDragnDrop" ColumnName="isDragnDrop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Route)">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteKey" ColumnName="RouteKey" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="DriverKey" ColumnName="DriverKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

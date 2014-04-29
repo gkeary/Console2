@@ -1,0 +1,8 @@
+E:\wip\Console2\bin\Debug\Console2.exe.config
+E:\wip\Console2\bin\Debug\Console2.exe
+E:\wip\Console2\bin\Debug\Console2.pdb
+E:\wip\Console2\bin\Debug\EntityFramework.dll
+E:\wip\Console2\bin\Debug\EntityFramework.xml
+E:\wip\Console2\obj\Debug\Console2.csprojResolveAssemblyReference.cache
+E:\wip\Console2\obj\Debug\Console2.exe
+E:\wip\Console2\obj\Debug\Console2.pdb

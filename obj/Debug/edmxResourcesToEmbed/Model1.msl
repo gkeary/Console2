@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="D3ModelStoreContainer" CdmEntityContainer="D3Entities">
+    <EntitySetMapping Name="CurrentDayPickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.CurrentDayPickup)">
+        <MappingFragment StoreEntitySet="CurrentDayPickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="PreviousRouteId" ColumnName="PreviousRouteId" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsDispatched" ColumnName="IsDispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentDayRoutes">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.CurrentDayRoute)">
+        <MappingFragment StoreEntitySet="CurrentDayRoutes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteKey" ColumnName="RouteKey" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="InfoString" ColumnName="InfoString" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DriverKey" ColumnName="DriverKey" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivedPickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.ArchivedPickup)">
+        <MappingFragment StoreEntitySet="ArchivedPickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefaultRouteID" ColumnName="DefaultRouteID" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Dispatched" ColumnName="Dispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pickups">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Pickup)">
+        <MappingFragment StoreEntitySet="Pickups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="PickupDate" ColumnName="PickupDate" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Dispatched" ColumnName="Dispatched" />
+          <ScalarProperty Name="DispatchTime" ColumnName="DispatchTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostedMessages">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.PostedMessage)">
+        <MappingFragment StoreEntitySet="PostedMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="NumberofPendingUpdates" ColumnName="NumberofPendingUpdates" />
+          <ScalarProperty Name="Originator" ColumnName="Originator" />
+          <ScalarProperty Name="DefaultRouteId" ColumnName="DefaultRouteId" />
+          <ScalarProperty Name="PreviousRouteID" ColumnName="PreviousRouteID" />
+          <ScalarProperty Name="isDragnDrop" ColumnName="isDragnDrop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="IsTypeOf(D3Model.Route)">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RouteKey" ColumnName="RouteKey" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="DriverMessage" ColumnName="DriverMessage" />
+          <ScalarProperty Name="DriverKey" ColumnName="DriverKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
