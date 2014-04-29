@@ -14,7 +14,7 @@ namespace Console2
     
     public partial class Customer
     {
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
         public string CustomerKey { get; set; }
         public string CustomerName { get; set; }
         public string Address1 { get; set; }

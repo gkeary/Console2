@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/28/2014 21:43:05
+-- Date Created: 04/29/2014 10:25:01
 -- Generated from EDMX file: E:\wip\Console2\Model1.edmx
 -- --------------------------------------------------
 
@@ -83,7 +83,7 @@ GO
 
 -- Creating table 'Customers'
 CREATE TABLE [dbo].[Customers] (
-    [Id] int IDENTITY(1,1) NOT NULL,
+    [CustomerId] int IDENTITY(1,1) NOT NULL,
     [CustomerKey] nvarchar(10)  NULL,
     [CustomerName] nvarchar(30)  NULL,
     [Address1] nvarchar(30)  NULL,
@@ -186,10 +186,10 @@ ADD CONSTRAINT [PK_CurrentDayRoutes]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Customers'
+-- Creating primary key on [CustomerId] in table 'Customers'
 ALTER TABLE [dbo].[Customers]
 ADD CONSTRAINT [PK_Customers]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Drivers'
