@@ -13,10 +13,10 @@ namespace Console2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class D3Entities : DbContext
+    public partial class D3Context : DbContext
     {
-        public D3Entities()
-            : base("name=D3Entities")
+        public D3Context()
+            : base("name=D3Context")
         {
         }
     

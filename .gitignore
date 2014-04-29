@@ -2,9 +2,10 @@ log/*
 log/*.*
 **/obj
 
-Console2/bin/Debug/*.*
-Console2/bin/Debug/*.*.*
-Console2/bin/Release/*.*
+bin/Debug/*.*
+bin/Debug/*.*.*
+bin/Release/*.*
+bin/Release/*.*.*
 _ReSharper/*.*
 _ReSharper.t1/*
 Backup/*
