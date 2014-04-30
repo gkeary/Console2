@@ -18,7 +18,7 @@ namespace Console2
 
         private static void GetDrivers()
         {
-            using (var context = new D3Context())
+            using (var context = new D3Entities())
             {
                 var drivers = context.Drivers.ToList();
                 foreach (var dd in drivers)
@@ -30,7 +30,7 @@ namespace Console2
 
         private static void GetRoutes()
         {
-            using (var context = new D3Context())
+            using (var context = new D3Entities())
             {
                 var routes = context.Routes.ToList();
                 foreach (var rr in routes)

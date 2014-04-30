@@ -42,9 +42,9 @@
   </EntityType>
   <EntityType Name="Customer">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="CustomerId" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="CustomerKey" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
     <Property Name="CustomerName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
     <Property Name="Address1" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />

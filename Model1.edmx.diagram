@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="04d292d65b78424384d8c43413cda75b" Name="Diagram1">
+      <Diagram DiagramId="04d292d65b78424384d8c43413cda75b" Name="Diagram1" ZoomLevel="70">
         <EntityTypeShape EntityType="D3Model.CurrentDayPickup" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" FillColor="0, 64, 0" />
         <EntityTypeShape EntityType="D3Model.CurrentDayRoute" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" FillColor="0, 64, 0" />
         <EntityTypeShape EntityType="D3Model.Customer" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" FillColor="DarkGoldenrod" />
